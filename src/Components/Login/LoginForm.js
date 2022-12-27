@@ -43,7 +43,6 @@ const LoginForm = () => {
         <Link className={stylesBtn.button} to="/login/criar">
           Cadastro
         </Link>
-        ;
       </div>
     </section>
   );
