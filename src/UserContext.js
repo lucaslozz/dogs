@@ -1,5 +1,5 @@
 import React from 'react';
-import { USER_GET, TOKEN_POST, TOKEN_VALIDATE_POST } from './api';
+import { USER_GET, TOKEN_POST, TOKEN_VALIDATE_POST, USER_POST } from './api';
 import { useNavigate } from 'react-router-dom';
 
 export const UserContext = React.createContext();
@@ -55,6 +55,19 @@ export const UserStorage = ({ children }) => {
     } catch (err) {
       setError(err.message);
       setLogin(false);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function userCreate(username, email, password) {
+    try {
+      setError(null);
+      setLoading(true);
+      const { url, options } = USER_POST({ username, email, password });
+      const tokenRes = await fetch(url, options);
+    } catch (err) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
