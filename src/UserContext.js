@@ -60,18 +60,18 @@ export const UserStorage = ({ children }) => {
     }
   }
 
-  async function userCreate(username, email, password) {
-    try {
-      setError(null);
-      setLoading(true);
-      const { url, options } = USER_POST({ username, email, password });
-      const tokenRes = await fetch(url, options);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }
+  // async function userCreate(username, email, password) {
+  //   try {
+  //     setError(null);
+  //     setLoading(true);
+  //     const { url, options } = USER_POST({ username, email, password });
+  //     const tokenRes = await fetch(url, options);
+  //   } catch (err) {
+  //     setError(err.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
 
   async function userLogout() {
     setData(null);
