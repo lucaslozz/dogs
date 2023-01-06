@@ -20,7 +20,9 @@ const UserHeaderNav = () => {
         <button
           aria-label="menu"
           onClick={() => setMobileMenu(!mobileMenu)}
-          className={styles.mobileButton}
+          className={`${styles.mobileButton} ${
+            mobileMenu && styles.mobileButtonActive
+          }`}
         ></button>
       )}
 
