@@ -8,6 +8,7 @@ const useMedia = (media) => {
       const { matches } = window.matchMedia(media);
       setmacth(matches);
     }
+    changeMatch();
 
     window.addEventListener('resize', changeMatch);
     return () => {
