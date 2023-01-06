@@ -11,28 +11,38 @@ import useMedia from '../../Hooks/useMedia';
 const UserHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
   const mobile = useMedia('(max-width:40rem)');
-
-  console.log(mobile);
+  const [mobileMenu, setMobileMenu] = React.useState(false);
+  console.log(mobileMenu);
 
   return (
-    <nav className={styles.nav}>
-      <NavLink to="/conta" end>
-        <MinhasFotos />
-        {mobile && 'Minhas Fotos'}
-      </NavLink>
-      <NavLink to="/conta/estatisticas">
-        <Estatisticas />
-        {mobile && 'Estatísticas'}
-      </NavLink>
-      <NavLink to="/conta/postar">
-        <AdicionarFoto />
-        {mobile && 'Adicionar Fotos'}
-      </NavLink>
-      <button onClick={userLogout}>
-        <Sair />
-        {mobile && 'Sair'}
-      </button>
-    </nav>
+    <>
+      {mobile && (
+        <button
+          aria-label="menu"
+          onClick={() => setMobileMenu(!mobileMenu)}
+          className={styles.mobileButton}
+        ></button>
+      )}
+
+      <nav className={styles.nav}>
+        <NavLink to="/conta" end>
+          <MinhasFotos />
+          {mobile && 'Minhas Fotos'}
+        </NavLink>
+        <NavLink to="/conta/estatisticas">
+          <Estatisticas />
+          {mobile && 'Estatísticas'}
+        </NavLink>
+        <NavLink to="/conta/postar">
+          <AdicionarFoto />
+          {mobile && 'Adicionar Fotos'}
+        </NavLink>
+        <button onClick={userLogout}>
+          <Sair />
+          {mobile && 'Sair'}
+        </button>
+      </nav>
+    </>
   );
 };
 
