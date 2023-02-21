@@ -5,7 +5,7 @@ import Error from '../Helper/Error';
 import useForm from '../../Hooks/useForm';
 import Button from '../Forms/Button';
 import Input from '../Forms/Input';
-import { USER_POST } from '../../api';
+import { USER_POST } from '../../Api';
 import useFetch from '../../Hooks/useFetch';
 
 const LoginCreate = () => {
