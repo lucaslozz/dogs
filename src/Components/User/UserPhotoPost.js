@@ -8,8 +8,8 @@ import { PHOTO_POST } from '../../Api';
 
 const UserPhotoPost = () => {
   const nome = useForm();
-  const peso = useForm('number');
-  const idade = useForm('number');
+  const peso = useForm();
+  const idade = useForm();
   const [img, setImg] = React.useState({});
   const { data, error, loading, request } = useFetch();
 
@@ -35,12 +35,13 @@ const UserPhotoPost = () => {
   }
   return (
     <section className={`${styles.photoPost} animeLeft`}>
-      <form onSubmit={handleSubmit}></form>
-      <Input label="Nome" type="text" name="nome" {...nome} />
-      <Input label="Peso" type="text" name="peso" {...peso} />
-      <Input label="Idade" type="text" name="idade" {...idade} />
-      <input type="file" name="img" id="img" onChange={handleImgChange} />
-      <Button>Enviar</Button>
+      <form onSubmit={handleSubmit}>
+        <Input label="Nome" type="text" name="nome" {...nome} />
+        <Input label="Peso" type="text" name="peso" {...peso} />
+        <Input label="Idade" type="text" name="idade" {...idade} />
+        <input type="file" name="img" id="img" onChange={handleImgChange} />
+        <Button>Enviar</Button>
+      </form>
     </section>
   );
 };
